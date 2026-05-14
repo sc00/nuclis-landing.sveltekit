@@ -4,27 +4,17 @@
 	 */
 	import VisualForm from './VisualForm.svelte';
 	import VisualButton from './VisualButton.svelte';
-	import VisualHeading from './VisualHeading.svelte';
 	import LayoutStack from './LayoutStack.svelte';
-	import LayoutChips from './LayoutChips.svelte';
-	import VisualChip from './VisualChip.svelte';
 	import CompositionInputGroup from './CompositionInputGroup.svelte';
 	import CompositionTextareaGroup from './CompositionTextareaGroup.svelte';
+	import CompositionInterestPicker from './CompositionInterestPicker.svelte';
 	import { checkEmailIsValid } from '$lib/functions';
-	import { interestOptions } from '$lib/constants';
 
 	/**
 	 * VARIABLES
 	 */
 	let isLoading = $state(false);
 	let errors = $state({ email: '', message: '' });
-	let interests = $state(interestOptions.map((i, idx) => ({ ...i, isPressed: idx === 0 })));
-	let selectedInterests = $derived(
-		interests
-			.filter((i) => i.isPressed)
-			.map((i) => i.value)
-			.join(',')
-	);
 
 	async function handleFormSubmit(e: SubmitEvent) {
 		e.preventDefault();
@@ -73,18 +63,7 @@
 
 <VisualForm onsubmit={handleFormSubmit}>
 	<LayoutStack factor={0.75}>
-		<VisualHeading tag="h3" appearance="h5">Ich interessiere mich für...</VisualHeading>
-		<LayoutChips>
-			{#each interests as interest (interest.value)}
-				<VisualChip
-					value={interest.value}
-					isPressed={interest.isPressed}
-					onclick={() => (interest.isPressed = !interest.isPressed)}
-					>{interest.label}</VisualChip
-				>
-			{/each}
-		</LayoutChips>
-		<input type="hidden" name="interests" value={selectedInterests} />
+		<CompositionInterestPicker />
 		<CompositionInputGroup
 			label="Email"
 			name="email"

@@ -8,7 +8,7 @@
 	 * TYPES
 	 */
 	interface Props {
-		id: string;
+		id?: string;
 		type: string;
 		name: string;
 		placeholder?: string;
@@ -26,9 +26,9 @@
 	 * PROPS
 	 */
 	let {
-		id,
-		type,
 		name,
+		id = name,
+		type,
 		placeholder,
 		autocomplete,
 		value = $bindable(),
@@ -44,7 +44,7 @@
 
 <input
 	{id}
-	class={['v-input', hasError && 'v-input--error']}
+	class="v-input"
 	{type}
 	{name}
 	{placeholder}
