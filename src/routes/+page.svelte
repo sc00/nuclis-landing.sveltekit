@@ -2,8 +2,6 @@
 	/**
 	 * IMPORTS
 	 */
-	import type { ActionResult } from '@sveltejs/kit';
-	import { applyAction } from '$app/forms';
 	import LayoutContentLimit from '$lib/components/LayoutContentLimit.svelte';
 	import LayoutHeroButtons from '$lib/components/LayoutHeroButtons.svelte';
 	import LayoutFold from '$lib/components/LayoutFold.svelte';
@@ -28,21 +26,27 @@
 	 * FUNCTIONS
 	 */
 
-	function handleFormSubmit() {
+	async function handleFormSubmit(e: SubmitEvent) {
+		e.preventDefault();
+
+		const form = e.currentTarget as HTMLFormElement;
+		const formData = new FormData(form);
 		const start = Date.now();
 		const minProcessTime = 2000;
 		formIsLoading = true;
 
-		return async ({ result }: { result: ActionResult }) => {
-			const end = Date.now();
-			const processTime = end - start;
-			const delay = minProcessTime - processTime;
+		await fetch('/api/contact', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				email: formData.get('email'),
+				message: formData.get('message')
+			})
+		});
 
-			setTimeout(async () => {
-				formIsLoading = false;
-				await applyAction(result);
-			}, delay);
-		};
+		const delay = minProcessTime - (Date.now() - start);
+		await new Promise((resolve) => setTimeout(resolve, Math.max(0, delay)));
+		formIsLoading = false;
 	}
 </script>
 

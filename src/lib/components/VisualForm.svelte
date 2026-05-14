@@ -3,8 +3,6 @@
 	 * IMPORTS
 	 */
 	import type { Snippet } from 'svelte';
-	import { enhance } from '$app/forms';
-	import type { SubmitFunction } from '@sveltejs/kit';
 
 	/**
 	 * TYPES
@@ -14,7 +12,7 @@
 		action?: string;
 		method?: 'POST' | 'GET';
 		novalidate?: boolean;
-		onsubmit?: SubmitFunction;
+		onsubmit?: (e: SubmitEvent) => void;
 		children?: Snippet;
 	}
 
@@ -37,7 +35,7 @@
 	{method}
 	novalidate={novalidate ? true : null}
 	bind:this={element}
-	use:enhance={onsubmit}
+	{onsubmit}
 >
 	{@render children?.()}
 </form>
