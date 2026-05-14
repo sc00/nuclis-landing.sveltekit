@@ -15,16 +15,28 @@
 	import VisualCard from '$lib/components/VisualCard.svelte';
 	import CompositionInputGroup from '$lib/components/CompositionInputGroup.svelte';
 	import CompositionTextareaGroup from '$lib/components/CompositionTextareaGroup.svelte';
+	import LayoutChips from '$lib/components/LayoutChips.svelte';
+	import VisualChip from '$lib/components/VisualChip.svelte';
 	import VisualForm from '$lib/components/VisualForm.svelte';
 
 	/**
 	 * VARIABLES
 	 */
 	let formIsLoading = $state(false);
-
-	/**
-	 * FUNCTIONS
-	 */
+	let interests = $state([
+		{ value: 'website', label: 'Webseite', isPressed: true },
+		{ value: 'app', label: 'App', isPressed: false },
+		{ value: 'branding', label: 'Branding', isPressed: false },
+		{ value: 'logo', label: 'Logo', isPressed: false },
+		{ value: 'development', label: 'Development', isPressed: false },
+		{ value: 'design', label: 'Design', isPressed: false }
+	]);
+	let selectedInterests = $derived(
+		interests
+			.filter((i) => i.isPressed)
+			.map((i) => i.value)
+			.join(',')
+	);
 
 	async function handleFormSubmit(e: SubmitEvent) {
 		e.preventDefault();
@@ -40,7 +52,8 @@
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
 				email: formData.get('email'),
-				message: formData.get('message')
+				message: formData.get('message'),
+				interests: formData.get('interests')
 			})
 		});
 
@@ -153,6 +166,16 @@
 				<VisualForm onsubmit={handleFormSubmit}>
 					<LayoutStack factor={0.75}>
 						<VisualHeading tag="h3" appearance="h5">Ich interessiere mich für...</VisualHeading>
+						<LayoutChips>
+							{#each interests as interest (interest.value)}
+								<VisualChip
+									value={interest.value}
+									isPressed={interest.isPressed}
+									onclick={() => (interest.isPressed = !interest.isPressed)}
+								>{interest.label}</VisualChip>
+							{/each}
+						</LayoutChips>
+						<input type="hidden" name="interests" value={selectedInterests} />
 						<CompositionInputGroup
 							label="Email"
 							name="email"
