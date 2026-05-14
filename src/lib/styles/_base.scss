@@ -1,0 +1,68 @@
+@font-face {
+	font-family: 'Outfit';
+	font-weight: 300;
+	font-display: swap;
+	src: url('/assets/Outfit-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Outfit';
+	font-weight: 500;
+	font-display: swap;
+	src: url('/assets/Outfit-Medium.ttf') format('truetype');
+}
+
+body {
+	font-family: var(--font-family-base);
+	font-size: var(--font-size-base);
+	font-weight: var(--font-weight-base);
+	line-height: var(--line-height-base);
+	background-color: hsl(240, 15%, 12%);
+}
+
+a {
+	display: inline-block;
+	color: var(--clr-hyperlink);
+	transition: opacity 0.1s ease-in-out;
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+button {
+	color: inherit;
+	cursor: pointer;
+}
+
+input,
+textarea {
+	width: 100%;
+	color: inherit;
+	transition:
+		color 0.1s ease-in-out,
+		border-color 0.1s ease-in-out;
+
+	&::placeholder {
+		font-family: inherit;
+		transition: color 0.1s ease-in-out;
+	}
+}
+
+select {
+	color: inherit;
+}
+
+label {
+	cursor: pointer;
+}
+
+fieldset {
+	padding: 0;
+	border: 0;
+}
+
+:focus-visible {
+	outline: solid 2px var(--color-focus-outline);
+	outline-offset: 2px;
+}

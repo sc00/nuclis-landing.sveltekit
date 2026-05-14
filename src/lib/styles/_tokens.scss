@@ -1,0 +1,51 @@
+:root {
+	/* COLORS */
+	--color-primary: #007bff;
+	--color-secondary: #6c757d;
+	--color-success: #28a745;
+	--color-danger: #dc3545;
+	--color-warning: #ffc107;
+	--color-info: #17a2b8;
+	--color-light: hsl(240, 10%, 96%);
+	--color-dark: hsl(240, 9%, 23%);
+	--color-white: #ffffff;
+	--color-black: #000000;
+
+	--color-text-base: var(--color-dark);
+	--color-text-base-inverse: var(--color-light);
+	--color-background-base: var(--color-light);
+	--color-hyperlink: hsl(208, 55%, 42%);
+	--color-focus-outline: hsl(208, 70%, 62%);
+	--color-scheme1-text: hsl(240, 9%, 23%);
+	--color-scheme1-background: hsl(240, 20%, 98%);
+	--color-scheme2-text: hsl(240, 9%, 23%);
+	--color-scheme2-background: hsl(230, 20%, 94%);
+	--color-scheme3-text: hsl(240, 20%, 98%);
+	--color-scheme3-background: transparent;
+
+	/* TYPOGRAPHY */
+	--font-family-base: 'Outfit', Helvetica, Arial, sans-serif;
+	--font-size-base: 1.0625rem;
+	--font-weight-base: 300;
+	--line-height-base: 1.6;
+
+	/* SPACING */
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 1.5rem;
+	--spacing-xl: 3rem;
+
+	/* BORDERS */
+	--border-radius: 2rem;
+	--border-width: 1px;
+
+	/* SHADOWS */
+	--shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+	--shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+	--shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+	/* TRANSITIONS */
+	--transition-fast: 0.15s ease-in-out;
+	--transition-base: 0.3s ease-in-out;
+}
