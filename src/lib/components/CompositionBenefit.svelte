@@ -3,12 +3,12 @@
 	 * IMPORTS
 	 */
 	import type { Snippet } from 'svelte';
+	import LayoutBenefitIcon from './LayoutBenefitIcon.svelte';
+	import LayoutStack from './LayoutStack.svelte';
+	import VisualBenefit from './VisualBenefit.svelte';
+	import VisualBenefitIcon from './VisualBenefitIcon.svelte';
 	import VisualHeading from './VisualHeading.svelte';
 	import VisualParagraph from './VisualParagraph.svelte';
-	import VisualBenefit from './VisualBenefit.svelte';
-	import LayoutBenefitIcon from './LayoutBenefitIcon.svelte';
-	import VisualBenefitIcon from './VisualBenefitIcon.svelte';
-	import LayoutStack from './LayoutStack.svelte';
 
 	/**
 	 * TYPES

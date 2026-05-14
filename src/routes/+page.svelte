@@ -2,18 +2,18 @@
 	/**
 	 * IMPORTS
 	 */
+	import CompositionBenefit from '$lib/components/CompositionBenefit.svelte';
+	import CompositionContactForm from '$lib/components/CompositionContactForm.svelte';
+	import LayoutBenefits from '$lib/components/LayoutBenefits.svelte';
 	import LayoutContentLimit from '$lib/components/LayoutContentLimit.svelte';
-	import LayoutHeroButtons from '$lib/components/LayoutHeroButtons.svelte';
 	import LayoutFold from '$lib/components/LayoutFold.svelte';
+	import LayoutHeroButtons from '$lib/components/LayoutHeroButtons.svelte';
+	import LayoutStack from '$lib/components/LayoutStack.svelte';
 	import VisualButton from '$lib/components/VisualButton.svelte';
+	import VisualCard from '$lib/components/VisualCard.svelte';
 	import VisualHeading from '$lib/components/VisualHeading.svelte';
 	import VisualParagraph from '$lib/components/VisualParagraph.svelte';
 	import VisualSection from '$lib/components/VisualSection.svelte';
-	import CompositionBenefit from '$lib/components/CompositionBenefit.svelte';
-	import LayoutBenefits from '$lib/components/LayoutBenefits.svelte';
-	import LayoutStack from '$lib/components/LayoutStack.svelte';
-	import VisualCard from '$lib/components/VisualCard.svelte';
-	import CompositionContactForm from '$lib/components/CompositionContactForm.svelte';
 </script>
 
 <VisualSection id="hero" scheme="3" hero>

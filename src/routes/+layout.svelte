@@ -5,16 +5,16 @@
 	import type { Snippet } from 'svelte';
 	import '$lib/styles/global.scss';
 	import favicon from '$lib/assets/favicon.svg';
+	import LayoutContentLimit from '$lib/components/LayoutContentLimit.svelte';
+	import LayoutMainHeader from '$lib/components/LayoutMainHeader.svelte';
+	import LayoutMainHeaderInner from '$lib/components/LayoutMainHeaderInner.svelte';
+	import LayoutMainHeaderLogo from '$lib/components/LayoutMainHeaderLogo.svelte';
 	import LayoutPage from '$lib/components/LayoutPage.svelte';
-	import VisualMainHeader from '$lib/components/VisualMainHeader.svelte';
+	import VisualButton from '$lib/components/VisualButton.svelte';
+	import VisualLogoCombined from '$lib/components/VisualLogoCombined.svelte';
 	import VisualMainContent from '$lib/components/VisualMainContent.svelte';
 	import VisualMainFooter from '$lib/components/VisualMainFooter.svelte';
-	import LayoutMainHeader from '$lib/components/LayoutMainHeader.svelte';
-	import LayoutContentLimit from '$lib/components/LayoutContentLimit.svelte';
-	import LayoutMainHeaderInner from '$lib/components/LayoutMainHeaderInner.svelte';
-	import VisualLogoCombined from '$lib/components/VisualLogoCombined.svelte';
-	import LayoutMainHeaderLogo from '$lib/components/LayoutMainHeaderLogo.svelte';
-	import VisualButton from '$lib/components/VisualButton.svelte';
+	import VisualMainHeader from '$lib/components/VisualMainHeader.svelte';
 
 	/**
 	 * TYPES

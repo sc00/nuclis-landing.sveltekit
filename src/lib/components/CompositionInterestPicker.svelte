@@ -2,12 +2,12 @@
 	/**
 	 * IMPORTS
 	 */
+	import { interestOptions } from '$lib/constants';
 	import LayoutChips from './LayoutChips.svelte';
+	import LayoutStack from './LayoutStack.svelte';
 	import VisualChip from './VisualChip.svelte';
 	import VisualHeading from './VisualHeading.svelte';
 	import VisualInput from './VisualInput.svelte';
-	import LayoutStack from './LayoutStack.svelte';
-	import { interestOptions } from '$lib/constants';
 
 	/**
 	 * VARIABLES

@@ -2,13 +2,13 @@
 	/**
 	 * IMPORTS
 	 */
-	import VisualForm from './VisualForm.svelte';
-	import VisualButton from './VisualButton.svelte';
-	import LayoutStack from './LayoutStack.svelte';
-	import CompositionInputGroup from './CompositionInputGroup.svelte';
-	import CompositionTextareaGroup from './CompositionTextareaGroup.svelte';
-	import CompositionInterestPicker from './CompositionInterestPicker.svelte';
 	import { checkEmailIsValid } from '$lib/functions';
+	import CompositionInputGroup from './CompositionInputGroup.svelte';
+	import CompositionInterestPicker from './CompositionInterestPicker.svelte';
+	import CompositionTextareaGroup from './CompositionTextareaGroup.svelte';
+	import LayoutStack from './LayoutStack.svelte';
+	import VisualButton from './VisualButton.svelte';
+	import VisualForm from './VisualForm.svelte';
 
 	/**
 	 * VARIABLES
