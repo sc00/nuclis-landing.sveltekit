@@ -6,6 +6,7 @@
 	import LayoutInputGroup from './LayoutInputGroup.svelte';
 	import VisualInputLabel from './VisualInputLabel.svelte';
 	import VisualInput from './VisualInput.svelte';
+	import VisualFormMessage from './VisualFormMessage.svelte';
 
 	/**
 	 * TYPES
@@ -18,27 +19,29 @@
 		placeholder?: string;
 		required?: boolean;
 		isDisabled?: boolean;
+		error?: string;
 	}
 
 	/**
 	 * PROPS
 	 */
-	let {
-		label,
-		name,
-		id = name,
-		type = 'text',
-		placeholder,
-		required,
-		isDisabled
-	}: Props = $props();
+	let { label, name, id = name, type = 'text', placeholder, required, isDisabled, error }: Props =
+		$props();
+
+	/**
+	 * VARIABLES
+	 */
+	let hasError = $derived(Boolean(error));
 </script>
 
 <LayoutInputGroup>
 	{#if label}
-		<VisualInputLabel {label} labelFor={name} {required} />
+		<VisualInputLabel {label} labelFor={name} {required} {hasError} />
 	{/if}
 	<LayoutFullWidth>
-		<VisualInput {id} {type} {name} {placeholder} {required} {isDisabled} />
+		<VisualInput {id} {type} {name} {placeholder} {required} {isDisabled} {hasError} />
 	</LayoutFullWidth>
+	{#if error}
+		<VisualFormMessage type="error">{error}</VisualFormMessage>
+	{/if}
 </LayoutInputGroup>

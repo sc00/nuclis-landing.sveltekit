@@ -18,11 +18,13 @@
 	import LayoutChips from '$lib/components/LayoutChips.svelte';
 	import VisualChip from '$lib/components/VisualChip.svelte';
 	import VisualForm from '$lib/components/VisualForm.svelte';
+	import { isValidEmail } from '$lib/functions';
 
 	/**
 	 * VARIABLES
 	 */
 	let formIsLoading = $state(false);
+	let formErrors = $state({ email: '', message: '' });
 	let interests = $state([
 		{ value: 'website', label: 'Webseite', isPressed: true },
 		{ value: 'app', label: 'App', isPressed: false },
@@ -43,6 +45,23 @@
 
 		const form = e.currentTarget as HTMLFormElement;
 		const formData = new FormData(form);
+
+		const email = (formData.get('email') as string).trim();
+		const message = (formData.get('message') as string).trim();
+		const interests = (formData.get('interests') as string).trim();
+
+		if (!email) {
+			formErrors.email = 'Bitte gib eine Email-Adresse ein.';
+		} else if (!isValidEmail(email)) {
+			formErrors.email = 'Bitte gib eine gültige Email-Adresse ein.';
+		}
+
+		if (!message) {
+			formErrors.message = 'Bitte gib eine Nachricht ein.';
+		}
+
+		if (formErrors.email || formErrors.message) return;
+
 		const start = Date.now();
 		const minProcessTime = 2000;
 		formIsLoading = true;
@@ -51,9 +70,9 @@
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				email: formData.get('email'),
-				message: formData.get('message'),
-				interests: formData.get('interests')
+				email,
+				message,
+				interests
 			})
 		});
 
@@ -172,7 +191,8 @@
 									value={interest.value}
 									isPressed={interest.isPressed}
 									onclick={() => (interest.isPressed = !interest.isPressed)}
-								>{interest.label}</VisualChip>
+									>{interest.label}</VisualChip
+								>
 							{/each}
 						</LayoutChips>
 						<input type="hidden" name="interests" value={selectedInterests} />
@@ -182,6 +202,7 @@
 							placeholder="Email-Adresse eingeben"
 							required
 							isDisabled={formIsLoading}
+							error={formErrors.email}
 						/>
 						<CompositionTextareaGroup
 							label="Nachricht"
@@ -189,6 +210,7 @@
 							placeholder="Beschreibe dein Projekt"
 							required
 							isDisabled={formIsLoading}
+							error={formErrors.message}
 						/>
 						<VisualButton variant="primary" isBusy={formIsLoading}>Abschicken</VisualButton>
 					</LayoutStack>

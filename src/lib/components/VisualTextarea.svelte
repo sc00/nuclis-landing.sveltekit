@@ -74,7 +74,7 @@
 
 		&[aria-invalid='true'] {
 			padding-right: 2.5rem;
-			border-color: hsl(0, 75%, 46%);
+			border-color: var(--color-error);
 			background-image: url('/assets/alert-triangle.svg');
 			background-size: 1rem;
 			background-repeat: no-repeat;

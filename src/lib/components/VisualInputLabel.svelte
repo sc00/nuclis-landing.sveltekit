@@ -43,7 +43,7 @@
 		}
 
 		&[aria-invalid='true'] {
-			color: hsl(0, 75%, 46%);
+			color: var(--color-error);
 		}
 	}
 </style>
