@@ -13,70 +13,7 @@
 	import LayoutBenefits from '$lib/components/LayoutBenefits.svelte';
 	import LayoutStack from '$lib/components/LayoutStack.svelte';
 	import VisualCard from '$lib/components/VisualCard.svelte';
-	import CompositionInputGroup from '$lib/components/CompositionInputGroup.svelte';
-	import CompositionTextareaGroup from '$lib/components/CompositionTextareaGroup.svelte';
-	import LayoutChips from '$lib/components/LayoutChips.svelte';
-	import VisualChip from '$lib/components/VisualChip.svelte';
-	import VisualForm from '$lib/components/VisualForm.svelte';
-	import { checkEmailIsValid } from '$lib/functions';
-	import { interestOptions } from '$lib/constants';
-
-	/**
-	 * VARIABLES
-	 */
-	let formIsLoading = $state(false);
-	let formErrors = $state({ email: '', message: '' });
-	let interests = $state(interestOptions.map((i, idx) => ({ ...i, isPressed: idx === 0 })));
-	let selectedInterests = $derived(
-		interests
-			.filter((i) => i.isPressed)
-			.map((i) => i.value)
-			.join(',')
-	);
-
-	async function handleFormSubmit(e: SubmitEvent) {
-		e.preventDefault();
-
-		const form = e.currentTarget as HTMLFormElement;
-		const formData = new FormData(form);
-
-		const email = (formData.get('email') as string).trim();
-		const message = (formData.get('message') as string).trim();
-		const interests = (formData.get('interests') as string).trim();
-
-		const emailIsValid = checkEmailIsValid(email);
-		const messageIsValid = !!message;
-
-		if (!email) {
-			formErrors.email = 'Bitte gib eine Email-Adresse ein.';
-		} else if (!emailIsValid) {
-			formErrors.email = 'Bitte gib eine gültige Email-Adresse ein.';
-		}
-
-		if (!messageIsValid) {
-			formErrors.message = 'Bitte gib eine Nachricht ein.';
-		}
-
-		if (formErrors.email || formErrors.message) return;
-
-		const start = Date.now();
-		const minProcessTime = 2000;
-		formIsLoading = true;
-
-		await fetch('/api/contact', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				email,
-				message,
-				interests
-			})
-		});
-
-		const delay = minProcessTime - (Date.now() - start);
-		await new Promise((resolve) => setTimeout(resolve, Math.max(0, delay)));
-		formIsLoading = false;
-	}
+	import CompositionContactForm from '$lib/components/CompositionContactForm.svelte';
 </script>
 
 <VisualSection id="hero" scheme="3" hero>
@@ -179,39 +116,7 @@
 				</LayoutStack>
 			</LayoutStack>
 			<VisualCard>
-				<VisualForm onsubmit={handleFormSubmit}>
-					<LayoutStack factor={0.75}>
-						<VisualHeading tag="h3" appearance="h5">Ich interessiere mich für...</VisualHeading>
-						<LayoutChips>
-							{#each interests as interest (interest.value)}
-								<VisualChip
-									value={interest.value}
-									isPressed={interest.isPressed}
-									onclick={() => (interest.isPressed = !interest.isPressed)}
-									>{interest.label}</VisualChip
-								>
-							{/each}
-						</LayoutChips>
-						<input type="hidden" name="interests" value={selectedInterests} />
-						<CompositionInputGroup
-							label="Email"
-							name="email"
-							placeholder="Email-Adresse eingeben"
-							required
-							isDisabled={formIsLoading}
-							error={formErrors.email}
-						/>
-						<CompositionTextareaGroup
-							label="Nachricht"
-							name="message"
-							placeholder="Beschreibe dein Projekt"
-							required
-							isDisabled={formIsLoading}
-							error={formErrors.message}
-						/>
-						<VisualButton variant="primary" isBusy={formIsLoading}>Abschicken</VisualButton>
-					</LayoutStack>
-				</VisualForm>
+				<CompositionContactForm />
 			</VisualCard>
 		</LayoutFold>
 	</LayoutContentLimit>
