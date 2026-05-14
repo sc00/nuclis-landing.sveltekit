@@ -18,21 +18,15 @@
 	import LayoutChips from '$lib/components/LayoutChips.svelte';
 	import VisualChip from '$lib/components/VisualChip.svelte';
 	import VisualForm from '$lib/components/VisualForm.svelte';
-	import { isValidEmail } from '$lib/functions';
+	import { checkEmailIsValid } from '$lib/functions';
+	import { interestOptions } from '$lib/constants';
 
 	/**
 	 * VARIABLES
 	 */
 	let formIsLoading = $state(false);
 	let formErrors = $state({ email: '', message: '' });
-	let interests = $state([
-		{ value: 'website', label: 'Webseite', isPressed: true },
-		{ value: 'app', label: 'App', isPressed: false },
-		{ value: 'branding', label: 'Branding', isPressed: false },
-		{ value: 'logo', label: 'Logo', isPressed: false },
-		{ value: 'development', label: 'Development', isPressed: false },
-		{ value: 'design', label: 'Design', isPressed: false }
-	]);
+	let interests = $state(interestOptions.map((i, idx) => ({ ...i, isPressed: idx === 0 })));
 	let selectedInterests = $derived(
 		interests
 			.filter((i) => i.isPressed)
@@ -50,13 +44,16 @@
 		const message = (formData.get('message') as string).trim();
 		const interests = (formData.get('interests') as string).trim();
 
+		const emailIsValid = checkEmailIsValid(email);
+		const messageIsValid = !!message;
+
 		if (!email) {
 			formErrors.email = 'Bitte gib eine Email-Adresse ein.';
-		} else if (!isValidEmail(email)) {
+		} else if (!emailIsValid) {
 			formErrors.email = 'Bitte gib eine gültige Email-Adresse ein.';
 		}
 
-		if (!message) {
+		if (!messageIsValid) {
 			formErrors.message = 'Bitte gib eine Nachricht ein.';
 		}
 

@@ -1,1 +1,2 @@
-export { isValidEmail } from './isValidEmail';
+export { checkEmailIsValid } from './checkEmailIsValid';
+export { checkInterestsAreValid } from './checkInterestsAreValid';

@@ -1,21 +1,30 @@
 import { json, error } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
-import { isValidEmail } from '$lib/functions';
+import { checkEmailIsValid, checkInterestsAreValid } from '$lib/functions';
 
-export const POST: RequestHandler = async ({ request }) => {
-	const { interests, email, message } = await request.json();
+export const POST = async ({ request }) => {
+	const body = await request.json();
 
-	if (!isValidEmail(email?.trim() ?? '')) {
-		error(400, 'A valid email address is required');
+	const email = body.email?.trim() ?? '';
+	const message = body.message?.trim() ?? '';
+	const interests = body.interests?.split(',').filter(Boolean) ?? [];
+
+	const emailIsValid = checkEmailIsValid(email);
+	const messageIsValid = Boolean(message);
+	const interestsAreValid = checkInterestsAreValid(interests);
+
+	if (!emailIsValid) {
+		error(400, 'Invalid email');
 	}
 
-	if (!message?.trim()) {
-		error(400, 'Message is required');
+	if (!messageIsValid) {
+		error(400, 'Invalid message');
 	}
 
-	const interestList = interests ? interests.split(',').filter(Boolean) : [];
+	if (!interestsAreValid) {
+		error(400, 'Invalid interests');
+	}
 
-	console.log('[contact]', { email, message, interests: interestList });
+	console.log('[contact]', { email, message, interests });
 
 	return json({ success: true });
 };
