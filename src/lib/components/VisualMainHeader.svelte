@@ -25,7 +25,7 @@
 <style lang="scss">
 	.v-main-header {
 		position: relative;
-		padding-block: 0.875rem;
+		padding-block: 1.125rem;
 		color: var(--color-text-base-inverse);
 		background-color: transparent;
 		overflow-x: hidden;

@@ -24,6 +24,8 @@
 
 <style lang="scss">
 	.l-main-header-logo {
+		position: relative;
+		top: -0.25rem;
 		width: 5rem;
 	}
 </style>

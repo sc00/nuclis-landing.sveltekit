@@ -26,7 +26,7 @@
 <style lang="scss">
 	.l-content-limit {
 		margin-inline: auto;
-		padding-inline: 1.25rem;
+		padding-inline: 1.5rem;
 
 		&--full {
 			max-width: none;
