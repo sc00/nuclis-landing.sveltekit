@@ -24,6 +24,8 @@
 
 <style lang="scss">
 	.l-benefit-icon {
+		display: grid;
 		width: 2.125rem;
+		aspect-ratio: 1 / 1;
 	}
 </style>

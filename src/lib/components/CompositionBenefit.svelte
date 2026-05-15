@@ -6,8 +6,8 @@
 	import LayoutBenefitIcon from './LayoutBenefitIcon.svelte';
 	import LayoutStack from './LayoutStack.svelte';
 	import VisualBenefit from './VisualBenefit.svelte';
-	import VisualBenefitIcon from './VisualBenefitIcon.svelte';
 	import VisualHeading from './VisualHeading.svelte';
+	import VisualIcon from './VisualIcon.svelte';
 	import VisualParagraph from './VisualParagraph.svelte';
 
 	/**
@@ -28,7 +28,7 @@
 <VisualBenefit>
 	<LayoutStack factor={1}>
 		<LayoutBenefitIcon>
-			<VisualBenefitIcon {icon} />
+			<VisualIcon name={icon} background="linear-gradient(30deg, #4c6ccd, #a24ccd)" />
 		</LayoutBenefitIcon>
 		<LayoutStack>
 			<VisualHeading tag="h3" appearance="h5">{@render heading?.()}</VisualHeading>
