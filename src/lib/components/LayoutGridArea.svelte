@@ -1,29 +1,21 @@
 <script lang="ts">
-	/**
-	 * IMPORTS
-	 */
 	import type { Snippet } from 'svelte';
 
-	/**
-	 * TYPES
-	 */
 	interface Props {
 		tag?: string;
+		name: string;
 		children?: Snippet;
 	}
 
-	/**
-	 * PROPS
-	 */
-	let { tag = 'div', children }: Props = $props();
+	let { tag = 'div', name, children }: Props = $props();
 </script>
 
-<svelte:element this={tag} class="l-measure">
+<svelte:element this={tag} class="l-grid-area" style="grid-area: {name}">
 	{@render children?.()}
 </svelte:element>
 
 <style lang="scss">
-	.l-measure {
-		max-width: 35ch;
+	.l-grid-area {
+		min-width: 0;
 	}
 </style>

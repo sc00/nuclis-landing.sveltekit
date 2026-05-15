@@ -6,11 +6,12 @@
 	import CompositionContactForm from '$lib/components/CompositionContactForm.svelte';
 	import LayoutBenefits from '$lib/components/LayoutBenefits.svelte';
 	import LayoutContactIcon from '$lib/components/LayoutContactIcon.svelte';
+	import LayoutContactSectionBody from '$lib/components/LayoutContactSectionBody.svelte';
 	import LayoutContentLimit from '$lib/components/LayoutContentLimit.svelte';
 	import LayoutDefinitionList from '$lib/components/LayoutDefinitionList.svelte';
 	import LayoutFold from '$lib/components/LayoutFold.svelte';
+	import LayoutGridArea from '$lib/components/LayoutGridArea.svelte';
 	import LayoutHeroButtons from '$lib/components/LayoutHeroButtons.svelte';
-	import LayoutMeasure from '$lib/components/LayoutMeasure.svelte';
 	import LayoutStack from '$lib/components/LayoutStack.svelte';
 	import VisualButton from '$lib/components/VisualButton.svelte';
 	import VisualCard from '$lib/components/VisualCard.svelte';
@@ -113,39 +114,41 @@
 
 <VisualSection id="get-in-touch" scheme="1">
 	<LayoutContentLimit size="narrow">
-		<LayoutFold>
-			<LayoutMeasure>
-				<LayoutStack>
-					<LayoutStack tag="hgroup">
-						<VisualHeading tag="h2">Gemeinsam Ideen verwirklichen.</VisualHeading>
-						<VisualParagraph
-							>Projekte starten mit einer Vision. Der nächste Schritt ist nur einen Klick entfernt.</VisualParagraph
-						>
-					</LayoutStack>
-					<LayoutDefinitionList>
-						<VisualDefinitionTerm
-							><LayoutContactIcon><VisualIcon name="mail" label="E-Mail" /></LayoutContactIcon
-							></VisualDefinitionTerm
-						>
-						<VisualDefinitionDetail>office@nuclis.io</VisualDefinitionDetail>
-						<VisualDefinitionTerm
-							><LayoutContactIcon><VisualIcon name="phone" label="Telefon" /></LayoutContactIcon
-							></VisualDefinitionTerm
-						>
-						<VisualDefinitionDetail>+43 699 19900303</VisualDefinitionDetail>
-						<VisualDefinitionTerm
-							><LayoutContactIcon><VisualIcon name="map-pin" label="Adresse" /></LayoutContactIcon
-							></VisualDefinitionTerm
-						>
-						<VisualDefinitionDetail
-							>Gumpendorfer Straße 73/11<VisualLineBreak />1060 Wien</VisualDefinitionDetail
-						>
-					</LayoutDefinitionList>
+		<LayoutContactSectionBody>
+			<LayoutGridArea name="head">
+				<LayoutStack tag="hgroup">
+					<VisualHeading tag="h2">Gemeinsam Ideen verwirklichen.</VisualHeading>
+					<VisualParagraph
+						>Projekte starten mit einer Vision. Der nächste Schritt ist nur einen Klick entfernt.</VisualParagraph
+					>
 				</LayoutStack>
-			</LayoutMeasure>
-			<VisualCard>
-				<CompositionContactForm />
-			</VisualCard>
-		</LayoutFold>
+			</LayoutGridArea>
+			<LayoutGridArea name="contact">
+				<LayoutDefinitionList>
+					<VisualDefinitionTerm
+						><LayoutContactIcon><VisualIcon name="mail" label="E-Mail" /></LayoutContactIcon
+						></VisualDefinitionTerm
+					>
+					<VisualDefinitionDetail>office@nuclis.io</VisualDefinitionDetail>
+					<VisualDefinitionTerm
+						><LayoutContactIcon><VisualIcon name="phone" label="Telefon" /></LayoutContactIcon
+						></VisualDefinitionTerm
+					>
+					<VisualDefinitionDetail>+43 699 19900303</VisualDefinitionDetail>
+					<VisualDefinitionTerm
+						><LayoutContactIcon><VisualIcon name="map-pin" label="Adresse" /></LayoutContactIcon
+						></VisualDefinitionTerm
+					>
+					<VisualDefinitionDetail
+						>Gumpendorfer Straße 73/11<VisualLineBreak />1060 Wien</VisualDefinitionDetail
+					>
+				</LayoutDefinitionList>
+			</LayoutGridArea>
+			<LayoutGridArea name="card">
+				<VisualCard>
+					<CompositionContactForm />
+				</VisualCard>
+			</LayoutGridArea>
+		</LayoutContactSectionBody>
 	</LayoutContentLimit>
 </VisualSection>
