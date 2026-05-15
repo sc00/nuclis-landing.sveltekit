@@ -37,7 +37,7 @@
 		}
 
 		&--narrow {
-			max-width: 1150px;
+			max-width: 1100px;
 		}
 	}
 </style>
