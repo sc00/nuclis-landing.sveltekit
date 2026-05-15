@@ -28,8 +28,6 @@
 
 <style lang="scss">
 	.v-heading {
-		// text-shadow: 0px 0 4em hsla(215, 20%, 20%, 0.2);
-
 		&--align-start {
 			text-align: start;
 		}
@@ -43,39 +41,39 @@
 		}
 
 		&--appearance-h1 {
-			font-size: 4.75rem;
+			font-size: clamp(3rem, 6vw, 4.75rem);
 			font-weight: 500;
 			line-height: 1.12;
 		}
 
 		&--appearance-h2 {
-			font-size: 2.5rem;
+			font-size: clamp(2.25rem, 4vw, 2.5rem);
 			font-weight: 500;
 			line-height: 1.12;
 		}
 
 		&--appearance-h3 {
-			font-size: 1.5rem;
+			font-size: clamp(1.25rem, 3.1vw, 1.5rem);
 			font-weight: 500;
-			line-height: 1.2;
+			line-height: 1.3;
 		}
 
 		&--appearance-h4 {
-			font-size: 1.25rem;
+			font-size: clamp(1.125rem, 2.9vw, 1.25rem);
 			font-weight: 500;
-			line-height: 1.2;
+			line-height: 1.3;
 		}
 
 		&--appearance-h5 {
-			font-size: 1.125rem;
+			font-size: clamp(1.0625rem, 2.8vw, 1.125rem);
 			font-weight: 500;
-			line-height: 1.2;
+			line-height: 1.3;
 		}
 
 		&--appearance-h6 {
 			font-size: 1.0625rem;
 			font-weight: 300;
-			line-height: 1.6;
+			line-height: 1.4;
 		}
 	}
 </style>
