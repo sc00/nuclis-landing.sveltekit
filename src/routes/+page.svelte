@@ -8,6 +8,7 @@
 	import LayoutContentLimit from '$lib/components/LayoutContentLimit.svelte';
 	import LayoutFold from '$lib/components/LayoutFold.svelte';
 	import LayoutHeroButtons from '$lib/components/LayoutHeroButtons.svelte';
+	import LayoutMeasure from '$lib/components/LayoutMeasure.svelte';
 	import LayoutStack from '$lib/components/LayoutStack.svelte';
 	import VisualButton from '$lib/components/VisualButton.svelte';
 	import VisualCard from '$lib/components/VisualCard.svelte';
@@ -107,14 +108,14 @@
 <VisualSection id="get-in-touch" scheme="1">
 	<LayoutContentLimit size="narrow">
 		<LayoutFold>
-			<LayoutStack>
+			<LayoutMeasure>
 				<LayoutStack tag="hgroup">
 					<VisualHeading tag="h2">Gemeinsam Ideen verwirklichen.</VisualHeading>
 					<VisualParagraph
 						>Projekte starten mit einer Vision. Der nächste Schritt ist nur einen Klick entfernt.</VisualParagraph
 					>
 				</LayoutStack>
-			</LayoutStack>
+			</LayoutMeasure>
 			<VisualCard>
 				<CompositionContactForm />
 			</VisualCard>
