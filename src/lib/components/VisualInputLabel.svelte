@@ -27,6 +27,7 @@
 <style lang="scss">
 	.v-input-label {
 		font-size: 0.875rem;
+		font-weight: 400;
 
 		&[aria-required='true'] {
 			&::after {
