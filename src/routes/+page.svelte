@@ -5,14 +5,20 @@
 	import CompositionBenefit from '$lib/components/CompositionBenefit.svelte';
 	import CompositionContactForm from '$lib/components/CompositionContactForm.svelte';
 	import LayoutBenefits from '$lib/components/LayoutBenefits.svelte';
+	import LayoutContactIcon from '$lib/components/LayoutContactIcon.svelte';
 	import LayoutContentLimit from '$lib/components/LayoutContentLimit.svelte';
+	import LayoutDefinitionList from '$lib/components/LayoutDefinitionList.svelte';
 	import LayoutFold from '$lib/components/LayoutFold.svelte';
 	import LayoutHeroButtons from '$lib/components/LayoutHeroButtons.svelte';
 	import LayoutMeasure from '$lib/components/LayoutMeasure.svelte';
 	import LayoutStack from '$lib/components/LayoutStack.svelte';
 	import VisualButton from '$lib/components/VisualButton.svelte';
 	import VisualCard from '$lib/components/VisualCard.svelte';
+	import VisualDefinitionDetail from '$lib/components/VisualDefinitionDetail.svelte';
+	import VisualDefinitionTerm from '$lib/components/VisualDefinitionTerm.svelte';
 	import VisualHeading from '$lib/components/VisualHeading.svelte';
+	import VisualIcon from '$lib/components/VisualIcon.svelte';
+	import VisualLineBreak from '$lib/components/VisualLineBreak.svelte';
 	import VisualParagraph from '$lib/components/VisualParagraph.svelte';
 	import VisualSection from '$lib/components/VisualSection.svelte';
 </script>
@@ -109,11 +115,32 @@
 	<LayoutContentLimit size="narrow">
 		<LayoutFold>
 			<LayoutMeasure>
-				<LayoutStack tag="hgroup">
-					<VisualHeading tag="h2">Gemeinsam Ideen verwirklichen.</VisualHeading>
-					<VisualParagraph
-						>Projekte starten mit einer Vision. Der nächste Schritt ist nur einen Klick entfernt.</VisualParagraph
-					>
+				<LayoutStack>
+					<LayoutStack tag="hgroup">
+						<VisualHeading tag="h2">Gemeinsam Ideen verwirklichen.</VisualHeading>
+						<VisualParagraph
+							>Projekte starten mit einer Vision. Der nächste Schritt ist nur einen Klick entfernt.</VisualParagraph
+						>
+					</LayoutStack>
+					<LayoutDefinitionList>
+						<VisualDefinitionTerm
+							><LayoutContactIcon><VisualIcon name="mail" label="E-Mail" /></LayoutContactIcon
+							></VisualDefinitionTerm
+						>
+						<VisualDefinitionDetail>office@nuclis.io</VisualDefinitionDetail>
+						<VisualDefinitionTerm
+							><LayoutContactIcon><VisualIcon name="phone" label="Telefon" /></LayoutContactIcon
+							></VisualDefinitionTerm
+						>
+						<VisualDefinitionDetail>+43 699 19900303</VisualDefinitionDetail>
+						<VisualDefinitionTerm
+							><LayoutContactIcon><VisualIcon name="map-pin" label="Adresse" /></LayoutContactIcon
+							></VisualDefinitionTerm
+						>
+						<VisualDefinitionDetail
+							>Gumpendorfer Straße 73/11<VisualLineBreak />1060 Wien</VisualDefinitionDetail
+						>
+					</LayoutDefinitionList>
 				</LayoutStack>
 			</LayoutMeasure>
 			<VisualCard>
