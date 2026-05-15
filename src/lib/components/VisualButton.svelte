@@ -10,6 +10,7 @@
 	interface Props {
 		tag?: 'button' | 'a';
 		variant: 'primary' | 'secondary';
+		size?: 'small';
 		href?: string;
 		target?: string;
 		isDisabled?: boolean;
@@ -20,12 +21,21 @@
 	/**
 	 * PROPS
 	 */
-	let { tag = 'button', variant, href, target, isDisabled, isBusy, children }: Props = $props();
+	let {
+		tag = 'button',
+		variant,
+		size,
+		href,
+		target,
+		isDisabled,
+		isBusy,
+		children
+	}: Props = $props();
 </script>
 
 <svelte:element
 	this={tag}
-	class={['v-button', `v-button--${variant}`]}
+	class={['v-button', `v-button--${variant}`, size && `v-button--${size}`]}
 	href={tag === 'a' ? href : null}
 	target={tag === 'a' ? target : null}
 	role={tag === 'a' ? 'button' : null}
@@ -38,7 +48,7 @@
 
 <style lang="scss">
 	.v-button {
-		padding: 0.5rem 1.5rem 0.4375rem;
+		padding: 0.625rem 1.5rem 0.5625rem;
 		font-size: 1rem;
 		text-decoration: none;
 		border: none;
@@ -63,6 +73,17 @@
 			background-color: transparent;
 			color: inherit;
 			border: solid thin;
+		}
+
+		&--small {
+			padding: 0.4375rem 1.125rem 0.375rem;
+			font-size: 0.9375rem;
+
+			&::after {
+				width: 1.25rem;
+				height: 0.75rem;
+				margin-left: 0.5rem;
+			}
 		}
 
 		&::before,

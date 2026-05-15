@@ -60,7 +60,7 @@
 					<LayoutMainHeaderLogo>
 						<VisualLogoCombined />
 					</LayoutMainHeaderLogo>
-					<VisualButton tag="a" href="#get-in-touch" variant="secondary"
+					<VisualButton tag="a" href="#get-in-touch" variant="secondary" size="small"
 						>Jetzt anfragen</VisualButton
 					>
 				</LayoutMainHeaderInner>
