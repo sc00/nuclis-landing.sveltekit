@@ -7,7 +7,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import LayoutContentLimit from '$lib/components/LayoutContentLimit.svelte';
 	import LayoutMainHeader from '$lib/components/LayoutMainHeader.svelte';
-	import LayoutMainHeaderInner from '$lib/components/LayoutMainHeaderInner.svelte';
+	import LayoutMainHeaderBody from '$lib/components/LayoutMainHeaderBody.svelte';
 	import LayoutMainHeaderLogo from '$lib/components/LayoutMainHeaderLogo.svelte';
 	import LayoutPage from '$lib/components/LayoutPage.svelte';
 	import VisualButton from '$lib/components/VisualButton.svelte';
@@ -56,14 +56,14 @@
 	<LayoutMainHeader>
 		<VisualMainHeader isTransparent={scrolledPastThreshold}>
 			<LayoutContentLimit size="full">
-				<LayoutMainHeaderInner>
+				<LayoutMainHeaderBody>
 					<LayoutMainHeaderLogo>
 						<VisualLogoCombined />
 					</LayoutMainHeaderLogo>
 					<VisualButton tag="a" href="#get-in-touch" variant="secondary" size="small"
 						>Jetzt anfragen</VisualButton
 					>
-				</LayoutMainHeaderInner>
+				</LayoutMainHeaderBody>
 			</LayoutContentLimit>
 		</VisualMainHeader>
 	</LayoutMainHeader>
