@@ -25,7 +25,7 @@
 <style lang="scss">
 	.l-benefits {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
 		gap: 3rem;
 	}
 </style>
