@@ -46,7 +46,7 @@
 		}
 
 		&:hover:not([aria-pressed='true']) {
-			background-color: hsl(230, 20%, 65%);
+			background-color: hsl(230, 20%, 62%);
 			border-color: transparent;
 			color: var(--color-light);
 		}
