@@ -26,7 +26,7 @@
 
 <style lang="scss">
 	.v-section {
-		--this-padding-block: 6rem;
+		--this-padding-block: clamp(2.5rem, 6.5vw, 6rem);
 
 		&--scheme1 {
 			--this-color: var(--color-scheme1-text);
@@ -50,7 +50,7 @@
 		background: var(--this-background);
 
 		&--hero {
-			--this-padding-block: 14rem;
+			--this-padding-block: clamp(7rem, 14vw, 14rem);
 
 			@keyframes blur {
 				0% {
