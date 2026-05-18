@@ -25,7 +25,7 @@
 <style lang="scss">
 	.l-fold {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 32rem), 1fr));
+		gap: 1rem 2rem;
 	}
 </style>
