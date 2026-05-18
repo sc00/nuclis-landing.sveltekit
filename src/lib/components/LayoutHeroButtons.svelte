@@ -25,8 +25,9 @@
 <style lang="scss">
 	.l-hero-buttons {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: center;
-		gap: 0.75rem;
+		gap: 1rem 0.75rem;
 		margin-block-start: 2.5rem;
 	}
 </style>

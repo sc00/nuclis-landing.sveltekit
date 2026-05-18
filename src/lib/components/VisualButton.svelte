@@ -50,6 +50,7 @@
 	.v-button {
 		padding: 0.625rem 1.5rem 0.5625rem;
 		font-size: 1rem;
+		white-space: nowrap;
 		text-decoration: none;
 		border: none;
 		border-radius: 99px;
