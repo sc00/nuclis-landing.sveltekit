@@ -41,15 +41,15 @@
 		}
 
 		&--appearance-h1 {
-			font-size: clamp(3rem, 6vw, 4.75rem);
+			font-size: clamp(2.5rem, 7vw, 4.75rem);
 			font-weight: 500;
-			line-height: 1.12;
+			line-height: 1.15;
 		}
 
 		&--appearance-h2 {
-			font-size: clamp(2.25rem, 4vw, 2.5rem);
+			font-size: clamp(2rem, 5vw, 2.5rem);
 			font-weight: 500;
-			line-height: 1.12;
+			line-height: 1.15;
 		}
 
 		&--appearance-h3 {

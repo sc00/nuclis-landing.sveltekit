@@ -28,6 +28,5 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem 0.4375rem;
-		max-width: 22rem;
 	}
 </style>

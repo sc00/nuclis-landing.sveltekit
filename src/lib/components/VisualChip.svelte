@@ -27,7 +27,7 @@
 <style lang="scss">
 	.v-chip {
 		flex-grow: var(--chip-flex-grow, 0);
-		padding: 0.5rem 1.25rem 0.4375rem;
+		padding: 0.5rem 1.5rem 0.4375rem;
 		font-size: 0.875rem;
 		border: solid thin hsl(230, 22%, 45%);
 		border-radius: 0.375rem;

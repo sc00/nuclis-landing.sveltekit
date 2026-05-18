@@ -20,23 +20,24 @@
 			'head'
 			'card'
 			'contact';
+		justify-items: start;
 		gap: 2rem 3rem;
 
-		@media (min-width: 40rem) {
-			grid-template-areas:
-				'head head'
-				'card contact';
-			grid-template-columns: auto 1fr;
-			grid-template-rows: auto 1fr;
+		@media screen and (min-width: 40rem) {
+			// grid-template-areas:
+			// 	'head head'
+			// 	'contact card';
+			// grid-template-columns: 1fr 2fr;
+			// grid-template-rows: auto 1fr;
 		}
 
-		@media (min-width: 60rem) {
+		@media screen and (min-width: 60rem) {
 			grid-template-areas:
 				'head card'
 				'contact card';
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 1fr 29rem;
 			grid-template-rows: 12rem 1fr;
-			gap: 2rem calc(12vw - 4rem);
+			gap: 2rem 5rem;
 		}
 	}
 </style>

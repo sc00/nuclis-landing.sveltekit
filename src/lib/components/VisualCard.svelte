@@ -23,7 +23,7 @@
 
 <style lang="scss">
 	.v-card {
-		padding: 3rem;
+		padding: clamp(1.75rem, 6.5vw, 2.75rem);
 		background-color: #ffffff;
 		border-radius: 0.5rem;
 		box-shadow: 0 0 3rem 0 hsla(240, 20%, 10%, 0.1);

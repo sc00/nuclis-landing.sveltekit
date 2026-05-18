@@ -19,6 +19,13 @@
 	src: url('/assets/Outfit-Medium.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Outfit';
+	font-weight: 600;
+	font-display: swap;
+	src: url('/assets/Outfit-SemiBold.ttf') format('truetype');
+}
+
 body {
 	font-family: var(--font-family-base);
 	font-size: var(--font-size-base);

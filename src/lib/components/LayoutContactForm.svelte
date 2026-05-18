@@ -18,14 +18,12 @@
 	let { tag = 'div', children }: Props = $props();
 </script>
 
-<svelte:element this={tag} class="l-benefits">
+<svelte:element this={tag} class="l-contact-form">
 	{@render children?.()}
 </svelte:element>
 
 <style lang="scss">
-	.l-benefits {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-		gap: clamp(2rem, 3.1vw, 2.5rem) 3rem;
+	.l-contact-form {
+		max-width: 23.5rem;
 	}
 </style>

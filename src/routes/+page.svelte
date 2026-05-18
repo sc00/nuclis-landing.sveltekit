@@ -5,6 +5,7 @@
 	import CompositionBenefit from '$lib/components/CompositionBenefit.svelte';
 	import CompositionContactForm from '$lib/components/CompositionContactForm.svelte';
 	import LayoutBenefits from '$lib/components/LayoutBenefits.svelte';
+	import LayoutContactForm from '$lib/components/LayoutContactForm.svelte';
 	import LayoutContactIcon from '$lib/components/LayoutContactIcon.svelte';
 	import LayoutContactSectionBody from '$lib/components/LayoutContactSectionBody.svelte';
 	import LayoutContentLimit from '$lib/components/LayoutContentLimit.svelte';
@@ -58,7 +59,7 @@
 
 <VisualSection id="benefits" scheme="2">
 	<LayoutContentLimit size="narrow">
-		<LayoutStack factor={3}>
+		<LayoutStack factor={2}>
 			<LayoutStack tag="hgroup">
 				<VisualHeading tag="h2">Nicht gut. Großartig.</VisualHeading>
 				<VisualParagraph
@@ -146,7 +147,9 @@
 			</LayoutGridArea>
 			<LayoutGridArea name="card">
 				<VisualCard>
-					<CompositionContactForm />
+					<LayoutContactForm>
+						<CompositionContactForm />
+					</LayoutContactForm>
 				</VisualCard>
 			</LayoutGridArea>
 		</LayoutContactSectionBody>
